@@ -58,7 +58,7 @@ jobs:
       - name: 'Get Conjur Secrets'
         run: |
           echo "Authenticating with JWT to Conjur"
-          echo ""
+          echo "$CONJUR_AUTHENTICATE_URL"
           export SESSION_TOKEN=$(curl -v -k -X POST $CONJUR_AUTHENTICATE_URL -H "Content-Type:application/x-www-form-urlencoded" -H "Accept-Encoding:base64" --data-urlencode "jwt=$JWT")
           echo ""
           echo "Retrieving secret: ${{ vars.CONJUR_SECRET_ID_1 }}"
